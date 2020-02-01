@@ -2,6 +2,7 @@ const express = require("express");
 const dotenv = require("dotenv");
 const morgan = require("morgan");
 const connectDB = require("./config/db");
+const errorHandler = require("./middleware/error");
 //env setup
 dotenv.config({ path: "./config/config.env" });
 //connect to database
@@ -20,6 +21,8 @@ if (process.env.NODE_ENV === "development") {
 //Mount router
 app.use("/api/v1/bootcamps", require("./api/v1/bootcamps"));
 
+//errorHandler
+app.use(errorHandler);
 app.get("/", (req, res) => {
   res.send("Hello");
 });
