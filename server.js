@@ -2,6 +2,7 @@ const express = require("express");
 const dotenv = require("dotenv");
 const morgan = require("morgan");
 const fileupload = require("express-fileupload");
+const cookieParser = require("cookie-parser");
 const connectDB = require("./config/db");
 const errorHandler = require("./middleware/error");
 const path = require("path");
@@ -23,12 +24,16 @@ if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
 
+//cookieparser
+app.use(cookieParser());
+
 //File upload middleware
 app.use(fileupload());
 
 //Mount routers
 app.use("/api/v1/bootcamps", require("./api/v1/bootcamps"));
 app.use("/api/v1/courses", require("./api/v1/courses"));
+app.use("/api/v1/auth", require("./api/v1/auth"));
 
 //errorHandler
 app.use(errorHandler);
