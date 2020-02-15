@@ -71,9 +71,9 @@ app.use("/api/v1/reviews", require("./api/v1/reviews"));
 //errorHandler
 app.use(errorHandler);
 
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "index.html"));
-});
+// app.get("/", (req, res) => {
+//   res.sendFile(path.join(__dirname, "index.html"));
+// });
 
 const PORT = process.env.PORT || 5555;
 
