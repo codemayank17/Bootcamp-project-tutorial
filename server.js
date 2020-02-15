@@ -35,6 +35,7 @@ app.use("/api/v1/bootcamps", require("./api/v1/bootcamps"));
 app.use("/api/v1/courses", require("./api/v1/courses"));
 app.use("/api/v1/auth", require("./api/v1/auth"));
 app.use("/api/v1/users", require("./api/v1/users"));
+app.use("/api/v1/reviews", require("./api/v1/reviews"));
 
 //errorHandler
 app.use(errorHandler);
